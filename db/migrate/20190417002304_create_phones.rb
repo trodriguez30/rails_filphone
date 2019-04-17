@@ -3,7 +3,7 @@ class CreatePhones < ActiveRecord::Migration[5.1]
     create_table :phones do |t|
       t.references :headquarter, foreign_key: true
       t.integer :brand_vp
-      t.intege :code
+      t.integer :code
       t.string :model
 
       t.timestamps
