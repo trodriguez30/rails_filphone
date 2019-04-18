@@ -6,8 +6,8 @@ class Api::V1::PhonesController < ApiController
     before_action :set_phone, only: %i[show update destroy]
     
     def index 
-        @phone = Phone.all
-        render json: { phones: @phone }, status: :ok
+        @phones = Phone.all
+        render json: { phones: @phones }, status: :ok
     end
 
     def create 

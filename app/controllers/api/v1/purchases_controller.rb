@@ -3,8 +3,8 @@ class Api::V1::PurchasesController < ApiController
     before_action :set_purchase, only: %i[show update destroy]
     
     def index 
-        @purchase = Purchase.all
-        render json: { purchases: @purchase }, status: :ok
+        @purchases = Purchase.all
+        render json: { purchases: @purchases }, status: :ok
     end
 
 

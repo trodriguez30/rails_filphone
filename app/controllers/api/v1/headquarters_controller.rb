@@ -6,22 +6,20 @@ class Api::V1::HeadquartersController < ApiController
     before_action :set_headquarter, only: %i[show update destroy]
     
     def index 
-        @headquarter = Headquarter.all
-        render json: { headquarters: @headquarter }, status: :ok
+        @headquarters = Headquarter.all
     end
 
 
     def create 
         @headquarter = Headquarter.new(headquarter_params)
         if @headquarter.save 
-            render json: { message: 'Headquarter created', data: @headquarter}, status: :ok
+            render :show
         else
             render json: { message: 'Headquarter not created', data: @headquarter.errors}, status: :unprocessable_entity
         end
     end
     
     def show
-        render json: { data: @headquarter }, status: :ok
     end
 
     def update
