@@ -7,4 +7,7 @@ class Phone < ApplicationRecord
   has_many :users
   has_many :users, through: :purchases
 
+  def as_json(*)
+    super(except: %i[created_at updated_at])
+  end
 end
