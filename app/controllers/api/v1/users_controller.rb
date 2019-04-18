@@ -8,8 +8,7 @@ class Api::V1::UsersController < ApiController
     wrap_parameters :user, include: %i[role_vp gender_vp cc name address email password password_confirmation phone_number date_of_birth]
     def index 
         @users = User.all
-        render :index
-        #render json: { users: @users }, status: :ok
+        render json: { users: @users }, status: :ok
     end
 
     def genders 
@@ -19,14 +18,14 @@ class Api::V1::UsersController < ApiController
     def create 
         @user = User.new(user_params)
         if @user.save 
-            render :show
+            render json: { message: 'Insertado'}, status: :ok
         else
             render json: { message: 'usuario no ingresado', data: @user.errors}, status: :unprocessable_entity
         end
     end
     
     def show
-        render :show
+        render json: { data: @user }, status: :ok
     end
 
     def update
