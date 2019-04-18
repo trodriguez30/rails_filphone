@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'user/genders', to: 'users#genders'
-      resources :users
+      resources :users, :headquarters
     end
   end
   get 'welcome/index'

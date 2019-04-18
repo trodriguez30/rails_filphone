@@ -10,6 +10,7 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness:true, format: (EMAIL_REGEX) 
     has_secure_password
 
+    has_one :headquarters
     has_many :phones
     has_many :phones, through: :purchases
 
