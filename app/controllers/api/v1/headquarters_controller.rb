@@ -26,18 +26,18 @@ class Api::V1::HeadquartersController < ApiController
 
     def update
         if @headquarter.update(headquarter_params)
-            render json: {data: @headquarter}, status: :ok
+            render json: { message: 'Headquarter updated', data: @headquarter}, status: :ok
         else
-            render json: { message: 'User not updated', data: @headquarter.errors}, status: :unprocessable_entity
+            render json: { message: 'Headquarter not updated', data: @headquarter.errors}, status: :unprocessable_entity
         end
     end
 
     #soft delete pending
     def destroy
         if @headquarter.destroy
-            render json: { data: @headquarter}, status: :ok
+            render json: { message: 'Headquarter deleted', data: @headquarter}, status: :ok
         else
-            render json: { message: 'User not deleted', data: @headquarter.errors}, status: :unprocessable_entity
+            render json: { message: 'Headquarter not deleted', data: @headquarter.errors}, status: :unprocessable_entity
         end
     end
 
